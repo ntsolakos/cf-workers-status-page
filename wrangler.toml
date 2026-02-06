@@ -1,5 +1,4 @@
 name = "cf-workers-status-page"
-main = "out/worker.js"
 workers_dev = true
 compatibility_date = "2021-07-23"
 
