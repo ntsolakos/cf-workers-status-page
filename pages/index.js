@@ -67,13 +67,13 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
           `}
         </script>
       </Head>
-      <div className="container mx-auto px-4">
-        <div className="flex flex-row justify-between items-center p-4">
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-row justify-between items-center p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg mb-8 border border-gray-100 dark:border-gray-700">
           <div className="flex flex-row items-center">
-            <img className="h-8 w-auto" src={config.settings.logo} />
-            <h1 className="ml-4 text-3xl">{config.settings.title}</h1>
+            <img className="h-10 w-auto" src={config.settings.logo} />
+            <h1 className="ml-4 text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">{config.settings.title}</h1>
           </div>
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center gap-3">
             {typeof window !== 'undefined' && <ThemeSwitcher />}
             <MonitorFilter active={slash} callback={filterByTerm} />
           </div>
@@ -88,14 +88,14 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
             />
           )
         })}
-        <div className="flex flex-row justify-between mt-4 text-sm">
+        <div className="flex flex-row justify-between mt-8 pt-6 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
           <div>
             Powered by{' '}
-            <a href="https://workers.cloudflare.com/" target="_blank">
+            <a href="https://workers.cloudflare.com/" target="_blank" className="font-semibold">
               Cloudflare Workers{' '}
             </a>
             &{' '}
-            <a href="https://flareact.com/" target="_blank">
+            <a href="https://flareact.com/" target="_blank" className="font-semibold">
               Flareact{' '}
             </a>
           </div>
@@ -103,6 +103,7 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
             <a
               href="https://github.com/eidam/cf-workers-status-page"
               target="_blank"
+              className="font-semibold"
             >
               Get Your Status Page
             </a>
