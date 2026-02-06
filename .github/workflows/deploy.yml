@@ -39,18 +39,10 @@ jobs:
         postCommands: |
           yarn kv-gc
         secrets: |
-          SECRET_SLACK_WEBHOOK_URL
-          SECRET_TELEGRAM_API_TOKEN
-          SECRET_TELEGRAM_CHAT_ID
-          SECRET_DISCORD_WEBHOOK_URL
           SECRET_RESEND_API_KEY
           SECRET_EMAIL_TO
         environment: production
       env:
         CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-        SECRET_SLACK_WEBHOOK_URL: ${{ secrets.SECRET_SLACK_WEBHOOK_URL }}
-        SECRET_TELEGRAM_API_TOKEN: ${{ secrets.SECRET_TELEGRAM_API_TOKEN }}
-        SECRET_TELEGRAM_CHAT_ID: ${{ secrets.SECRET_TELEGRAM_CHAT_ID }}
-        SECRET_DISCORD_WEBHOOK_URL: ${{ secrets.SECRET_DISCORD_WEBHOOK_URL }}
         SECRET_RESEND_API_KEY: ${{ secrets.SECRET_RESEND_API_KEY }}
         SECRET_EMAIL_TO: ${{ secrets.SECRET_EMAIL_TO }}
