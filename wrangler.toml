@@ -1,4 +1,5 @@
 name = "cf-workers-status-page"
+main = "out/worker.js"
 workers_dev = true
 account_id = ""
 compatibility_date = "2021-07-23"
@@ -8,6 +9,7 @@ crons = ["*/3 * * * *"]
 
 [site]
 bucket = "out"
+entry-point = "workers-site"
 
 [env.production]
 kv_namespaces = [{binding="KV_STATUS_PAGE", id="8398f2e2d719453ab6d75e59e8d35aea"}]
