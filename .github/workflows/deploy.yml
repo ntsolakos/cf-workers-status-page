@@ -5,6 +5,8 @@ on:
     branches:
       - main
   repository_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
 
 jobs:
   deploy:
@@ -12,24 +14,27 @@ jobs:
     timeout-minutes: 10
     steps:
     - uses: actions/checkout@v3
-    
-    - uses: actions/setup-node@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: 18
-    
+        node-version: '18'
+
     - name: Install dependencies
       run: yarn install
-    
-    - name: Build
+
+    - name: Build project
       run: yarn build
       env:
         NODE_ENV: production
-    
+        NODE_OPTIONS: --openssl-legacy-provider
+
     - name: Deploy to Cloudflare Workers
       uses: cloudflare/wrangler-action@v3
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
         accountId: ${{ secrets.CF_ACCOUNT_ID }}
+        command: publish --env production
         secrets: |
           SECRET_SLACK_WEBHOOK_URL
           SECRET_TELEGRAM_API_TOKEN
