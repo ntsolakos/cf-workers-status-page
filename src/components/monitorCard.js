@@ -20,8 +20,8 @@ const infoIcon = (
 export default function MonitorCard({ key, monitor, data }) {
   return (
     <div key={key} className="card">
-      <div className="flex flex-row justify-between items-center mb-2">
-        <div className="flex flex-row items-center align-center">
+      <div className="flex flex-row justify-between items-center mb-4">
+        <div className="flex flex-row items-center align-center gap-2">
           {monitor.description && (
             <div className="tooltip">
               {infoIcon}
@@ -32,14 +32,14 @@ export default function MonitorCard({ key, monitor, data }) {
           )}
           {(monitor.linkable === true || monitor.linkable === undefined) ?
             (
-              <a href={monitor.url} target="_blank">
-                <div className="text-xl">{monitor.name}</div>
+              <a href={monitor.url} target="_blank" className="hover:opacity-80 transition-opacity">
+                <div className="text-xl font-semibold">{monitor.name}</div>
               </a>
             )
             :
             (
               <span>
-                <div className="text-xl">{monitor.name}</div>
+                <div className="text-xl font-semibold">{monitor.name}</div>
               </span>
             )
           }
@@ -50,7 +50,7 @@ export default function MonitorCard({ key, monitor, data }) {
 
       <MonitorHistogram monitorId={monitor.id} kvMonitor={data} />
 
-      <div className="flex flex-row justify-between items-center text-gray-400 text-sm">
+      <div className="flex flex-row justify-between items-center text-gray-400 dark:text-gray-500 text-xs mt-3 font-medium">
         <div>{config.settings.daysInHistogram} days ago</div>
         <div>Today</div>
       </div>
