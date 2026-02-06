@@ -7,6 +7,7 @@ import {
   getKVMonitors,
   setKVMonitors,
   notifyDiscord,
+  notifyEmail,
 } from './helpers'
 
 function getDate() {
@@ -96,6 +97,17 @@ export async function processCronTrigger(event) {
       SECRET_DISCORD_WEBHOOK_URL !== 'default-gh-action-secret'
     ) {
       event.waitUntil(notifyDiscord(monitor, monitorOperational))
+    }
+
+    // Send Email notification on monitor change
+    if (
+      monitorStatusChanged &&
+      typeof SECRET_RESEND_API_KEY !== 'undefined' &&
+      SECRET_RESEND_API_KEY !== 'default-gh-action-secret' &&
+      typeof SECRET_EMAIL_TO !== 'undefined' &&
+      SECRET_EMAIL_TO !== 'default-gh-action-secret'
+    ) {
+      event.waitUntil(notifyEmail(monitor, monitorOperational))
     }
 
     // make sure checkDay exists in checks in cases when needed

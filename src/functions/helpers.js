@@ -108,6 +108,59 @@ export async function notifyDiscord(monitor, operational) {
   })
 }
 
+export async function notifyEmail(monitor, operational) {
+  const operationalLabel = getOperationalLabel(operational)
+  const statusColor = operational ? '#2ecc71' : '#e74c3c'
+  const statusEmoji = operational ? '✅' : '🚨'
+
+  const subject = operational
+    ? `✅ ${monitor.name} is back online`
+    : `🚨 ${monitor.name} is down`
+
+  const htmlBody = `
+    <html>
+      <body style="font-family: Arial, sans-serif; padding: 20px; background-color: #f5f5f5;">
+        <div style="max-width: 600px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <h2 style="color: ${statusColor}; margin-top: 0;">
+            Monitor ${monitor.name} is ${operationalLabel}
+          </h2>
+          <p style="font-size: 16px; line-height: 1.5;">
+            ${statusEmoji} <code style="background-color: #f0f0f0; padding: 4px 8px; border-radius: 4px; font-family: monospace;">${
+              monitor.method || 'GET'
+            } ${monitor.url}</code>
+          </p>
+          <p style="margin-top: 30px;">
+            <a href="${config.settings.url}"
+               style="display: inline-block; padding: 12px 24px; background-color: #3498db; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">
+              View Status Page
+            </a>
+          </p>
+          <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 30px 0;">
+          <p style="font-size: 12px; color: #888; margin-bottom: 0;">
+            This is an automated notification from ${config.settings.title}
+          </p>
+        </div>
+      </body>
+    </html>
+  `
+
+  const payload = {
+    from: 'status@resend.dev',
+    to: SECRET_EMAIL_TO,
+    subject: subject,
+    html: htmlBody,
+  }
+
+  return fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${SECRET_RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+}
+
 export function useKeyPress(targetKey) {
   const [keyPressed, setKeyPressed] = useState(false)
 
