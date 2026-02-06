@@ -44,5 +44,5 @@ monitors:
     description: 'WooCommerce backend availability'
     url: 'https://your-woocommerce-site.com/wp-json/wc/v3/' # Replace with your WC API URL
     method: GET
-    expectStatus: 401 # 401 means WooCommerce is responding (just requires authentication)
+    expectStatus: 200 # Site returns data instead of 401
     linkable: false
