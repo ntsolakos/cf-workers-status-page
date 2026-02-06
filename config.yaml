@@ -26,13 +26,13 @@ monitors:
   - id: shop
     name: 'Shop Page'
     description: 'eShop availability'
-    url: 'https://star-beauty.gr/shop' # Replace with your shop page URL
+    url: 'https://star-beauty.gr/shop/' # Replace with your shop page URL
     method: GET
     expectStatus: 200
     linkable: true
 
   - id: wp-api
-    name: 'Website REST API'
+    name: 'Website API'
     description: 'Backend API health'
     url: 'https://star-beauty.gr/wp-json/' # Replace with your WP REST API URL
     method: GET
@@ -40,9 +40,9 @@ monitors:
     linkable: false
 
   - id: wc-api
-    name: 'eShop REST API'
+    name: 'eShop API'
     description: 'WooCommerce backend availability'
     url: 'https://star-beauty.gr/wp-json/wc/v3/' # Replace with your WC API URL
     method: GET
-    expectStatus: 401 # 401 means WooCommerce is responding (just requires authentication)
+    expectStatus: 200 # 200 means WooCommerce is responding (just requires authentication)
     linkable: false
