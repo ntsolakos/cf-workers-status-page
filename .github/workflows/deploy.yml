@@ -29,6 +29,9 @@ jobs:
         NODE_ENV: production
         NODE_OPTIONS: --openssl-legacy-provider
 
+    - name: Debug - List build output
+      run: ls -la out/
+
     - name: Deploy to Cloudflare Workers
       uses: cloudflare/wrangler-action@v3
       with:
