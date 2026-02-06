@@ -34,12 +34,25 @@ Added complete email notification system:
 - ✅ **Color-coded alerts** - Green for operational, red for down
 - ✅ **Integrated into CRON workflow** - Automatically sends emails on status changes
 
-### 4. Deployment Guide (DEPLOYMENT_GUIDE.md)
+### 4. GitHub Actions Workflow (.github/workflows/deploy.yml)
+**File:** `.github/workflows/deploy.yml`
+
+Updated GitHub Actions workflow to support automatic deployment:
+- ✅ Added SECRET_RESEND_API_KEY secret handling
+- ✅ Added SECRET_EMAIL_TO secret handling
+- ✅ Automatic deployment on push to main branch
+- ✅ KV namespace auto-creation
+- ✅ All notification secrets supported (Slack, Discord, Telegram, Email)
+
+### 5. Deployment Guide (DEPLOYMENT_GUIDE.md)
 **File:** `DEPLOYMENT_GUIDE.md`
 
-Created comprehensive step-by-step deployment instructions covering:
-- ✅ Prerequisites (Cloudflare and Resend account setup)
+Created comprehensive deployment guide with **two deployment options**:
+- ✅ **Option A: GitHub Actions** - Automatic deployment (recommended)
+- ✅ **Option B: Wrangler CLI** - Manual deployment
+- ✅ Prerequisites and account setup
 - ✅ Configuration steps (updating URLs and settings)
+- ✅ GitHub secrets setup instructions
 - ✅ KV namespace creation and setup
 - ✅ Secret management (API keys and email addresses)
 - ✅ Build and deployment commands
@@ -60,13 +73,28 @@ Created comprehensive step-by-step deployment instructions covering:
    - Create an API key
    - Keep it safe for the deployment process
 
-3. **Get Cloudflare Account ID**:
-   - Log in to https://dash.cloudflare.com
-   - Navigate to Workers & Pages
-   - Copy your Account ID
+3. **Get Cloudflare credentials**:
+   - Account ID from https://dash.cloudflare.com
+   - API Token (if using GitHub Actions)
+
+### Choose Your Deployment Method
+
+**Option A: GitHub Actions (Automatic)**
+1. Set up GitHub repository secrets (CF_API_TOKEN, CF_ACCOUNT_ID, SECRET_RESEND_API_KEY, SECRET_EMAIL_TO)
+2. Push to `main` branch
+3. GitHub Actions automatically deploys
+4. See `DEPLOYMENT_GUIDE.md` → "GitHub Actions Deployment" section
+
+**Option B: Wrangler CLI (Manual)**
+1. Install Wrangler CLI
+2. Run `wrangler login`
+3. Create KV namespace
+4. Add secrets with `wrangler secret put`
+5. Deploy with `wrangler publish`
+6. See `DEPLOYMENT_GUIDE.md` → "Manual Deployment via Wrangler CLI" section
 
 ### Deployment Process
-Follow the complete guide in `DEPLOYMENT_GUIDE.md` - it covers everything from installation to testing.
+Follow the complete guide in `DEPLOYMENT_GUIDE.md` - it covers both deployment methods with step-by-step instructions.
 
 **Quick summary:**
 ```bash
@@ -142,9 +170,10 @@ These limitations exist because the monitoring uses unauthenticated HTTP request
 2. **wrangler.toml** - Changed CRON schedule to 3-minute intervals
 3. **src/functions/helpers.js** - Added notifyEmail() function (lines 111-162)
 4. **src/functions/cronTrigger.js** - Added notifyEmail import and notification call (lines 10, 102-111)
+5. **.github/workflows/deploy.yml** - Added email notification secrets support for GitHub Actions
 
 ### New Files:
-1. **DEPLOYMENT_GUIDE.md** - Complete deployment instructions
+1. **DEPLOYMENT_GUIDE.md** - Complete deployment instructions (both GitHub Actions and Wrangler CLI)
 2. **IMPLEMENTATION_SUMMARY.md** - This file
 
 ## Testing Recommendations
