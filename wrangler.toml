@@ -1,6 +1,8 @@
 name = "cf-workers-status-page"
-main = "out/worker.js"
 workers_dev = true
+account_id = ""
+type = "webpack"
+webpack_config = "node_modules/flareact/webpack"
 compatibility_date = "2021-07-23"
 
 [triggers]
@@ -8,6 +10,7 @@ crons = ["*/3 * * * *"]
 
 [site]
 bucket = "out"
+entry-point = "./"
 
 [env.production]
 kv_namespaces = [{binding="KV_STATUS_PAGE", id="8398f2e2d719453ab6d75e59e8d35aea"}]
