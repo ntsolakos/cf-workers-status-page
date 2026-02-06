@@ -1,5 +1,5 @@
 settings:
-  title: 'WooCommerce Status'
+  title: 'Star Beauty Status'
   url: 'https://your-worker-name.workers.dev' # Replace with your actual worker URL after deployment
   logo: logo-192x192.png # image in ./public/ folder
   daysInHistogram: 90 # number of days you want to display in histogram
@@ -16,33 +16,33 @@ settings:
 
 monitors:
   - id: homepage
-    name: 'Your Site Name' # Replace with your actual site name
+    name: 'Front Page' # Replace with your actual site name
     description: 'Main website availability'
-    url: 'https://your-woocommerce-site.com' # Replace with your WooCommerce site URL
+    url: 'https://star-beauty.gr' # Replace with your WooCommerce site URL
     method: GET
     expectStatus: 200
     linkable: true
 
   - id: shop
     name: 'Shop Page'
-    description: 'WooCommerce storefront'
-    url: 'https://your-woocommerce-site.com/shop' # Replace with your shop page URL
+    description: 'eShop availability'
+    url: 'https://star-beauty.gr/shop' # Replace with your shop page URL
     method: GET
     expectStatus: 200
     linkable: true
 
   - id: wp-api
-    name: 'WordPress REST API'
+    name: 'Website REST API'
     description: 'Backend API health'
-    url: 'https://your-woocommerce-site.com/wp-json/' # Replace with your WP REST API URL
+    url: 'https://star-beauty.gr/wp-json/' # Replace with your WP REST API URL
     method: GET
     expectStatus: 200
     linkable: false
 
   - id: wc-api
-    name: 'WooCommerce REST API'
+    name: 'eShop REST API'
     description: 'WooCommerce backend availability'
-    url: 'https://your-woocommerce-site.com/wp-json/wc/v3/' # Replace with your WC API URL
+    url: 'https://star-beauty.gr/wp-json/wc/v3/' # Replace with your WC API URL
     method: GET
     expectStatus: 401 # 401 means WooCommerce is responding (just requires authentication)
     linkable: false
