@@ -33,15 +33,14 @@ jobs:
       run: ls -la out/
 
     - name: Publish
-      uses: cloudflare/wrangler-action@1.3.0
-      continue-on-error: true
+      uses: cloudflare/wrangler-action@v3
       with:
         apiToken: ${{ secrets.CF_API_TOKEN }}
+        accountId: ${{ secrets.CF_ACCOUNT_ID }}
         secrets: |
           SECRET_RESEND_API_KEY
           SECRET_EMAIL_TO
         environment: production
       env:
-        CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         SECRET_RESEND_API_KEY: ${{ secrets.SECRET_RESEND_API_KEY }}
         SECRET_EMAIL_TO: ${{ secrets.SECRET_EMAIL_TO }}
