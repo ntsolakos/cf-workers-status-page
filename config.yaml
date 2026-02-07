@@ -16,33 +16,65 @@ settings:
 
 monitors:
   - id: homepage
-    name: 'Front Page' # Replace with your actual site name
-    description: 'Main website availability'
-    url: 'https://star-beauty.gr' # Replace with your WooCommerce site URL
+    name: 'Public Website'
+    description: 'Primary website availability'
+    url: 'https://star-beauty.gr'
     method: GET
     expectStatus: 200
     linkable: true
 
-  - id: shop
-    name: 'Shop Page'
-    description: 'eShop availability'
-    url: 'https://star-beauty.gr/shop/' # Replace with your shop page URL
+  - id: catalog
+    name: 'Product Catalog'
+    description: 'Online catalog availability'
+    url: 'https://star-beauty.gr/shop/'
     method: GET
     expectStatus: 200
     linkable: true
 
-  - id: wp-api
-    name: 'Website API'
-    description: 'Backend API health'
-    url: 'https://star-beauty.gr/wp-json/' # Replace with your WP REST API URL
+  - id: checkout
+    name: 'Checkout Flow'
+    description: 'Order checkout availability'
+    url: 'https://star-beauty.gr/checkout/'
+    method: GET
+    expectStatus: 200
+    linkable: true
+
+  - id: cart
+    name: 'Shopping Cart'
+    description: 'Cart functionality availability'
+    url: 'https://star-beauty.gr/cart/'
+    method: GET
+    expectStatus: 200
+    linkable: true
+
+  - id: web-api
+    name: 'Application API'
+    description: 'Core backend API health'
+    url: 'https://star-beauty.gr/wp-json/'
     method: GET
     expectStatus: 200
     linkable: false
 
-  - id: wc-api
-    name: 'eShop API'
-    description: 'WooCommerce backend availability'
-    url: 'https://star-beauty.gr/wp-json/wc/v3/' # Replace with your WC API URL
+  - id: commerce-api
+    name: 'Commerce Services API'
+    description: 'Order and transaction service availability'
+    url: 'https://star-beauty.gr/wp-json/wc/v3/'
     method: GET
-    expectStatus: 200 # 200 means WooCommerce is responding (just requires authentication)
+    expectStatus: 200
+    linkable: false
+
+    id: order-processing
+    name: 'Order Processing'
+    description: 'Order submission backend availability'
+    url: 'https://star-beauty.gr/wp-json/'
+    method: GET
+    expectStatus: 200
+    linkable: false
+
+  - id: payment-init
+    name: 'Payment Initialization'
+    description: 'Payment session initialization availability'
+    url: 'https://star-beauty.gr/checkout/'
+    method: GET
+    expectStatus: 200
     linkable: false
