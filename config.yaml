@@ -1,6 +1,6 @@
 settings:
   title: 'Star Beauty Status'
-  url: 'https://your-worker-name.workers.dev' # Replace with your actual worker URL after deployment
+  url: 'https://cf-workers-status-page-production.starbeauty.workers.dev' # Replace with your actual worker URL after deployment
   logo: logo-192x192.png # image in ./public/ folder
   daysInHistogram: 90 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
