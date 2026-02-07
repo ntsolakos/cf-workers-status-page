@@ -18,7 +18,7 @@ monitors:
   - id: homepage
     name: 'Public Website'
     description: 'Primary website availability'
-    url: 'https://star-beauty.gr'
+    url: 'https://domain.gr'
     method: GET
     expectStatus: 200
     linkable: true
@@ -26,7 +26,7 @@ monitors:
   - id: catalog
     name: 'Product Catalog'
     description: 'Online catalog availability'
-    url: 'https://star-beauty.gr/shop/'
+    url: 'https://domain.gr/shop/'
     method: GET
     expectStatus: 200
     linkable: true
@@ -34,7 +34,7 @@ monitors:
   - id: checkout
     name: 'Checkout Flow'
     description: 'Order checkout availability'
-    url: 'https://star-beauty.gr/checkout/'
+    url: 'https://domain.gr/checkout/'
     method: GET
     expectStatus: 200
     linkable: true
@@ -42,7 +42,7 @@ monitors:
   - id: cart
     name: 'Shopping Cart'
     description: 'Cart functionality availability'
-    url: 'https://star-beauty.gr/cart/'
+    url: 'https://domain.gr/cart/'
     method: GET
     expectStatus: 200
     linkable: true
@@ -50,7 +50,7 @@ monitors:
   - id: web-api
     name: 'Application API'
     description: 'Core backend API health'
-    url: 'https://star-beauty.gr/wp-json/'
+    url: 'https://domain.gr/wp-json/'
     method: GET
     expectStatus: 200
     linkable: false
@@ -58,15 +58,15 @@ monitors:
   - id: commerce-api
     name: 'Commerce Services API'
     description: 'Order and transaction service availability'
-    url: 'https://star-beauty.gr/wp-json/wc/v3/'
+    url: 'https://domain.gr/wp-json/wc/v3/'
     method: GET
     expectStatus: 200
     linkable: false
 
-    id: order-processing
+  - id: order-processing
     name: 'Order Processing'
     description: 'Order submission backend availability'
-    url: 'https://star-beauty.gr/wp-json/'
+    url: 'https://domain.gr/wp-json/'
     method: GET
     expectStatus: 200
     linkable: false
@@ -74,7 +74,7 @@ monitors:
   - id: payment-init
     name: 'Payment Initialization'
     description: 'Payment session initialization availability'
-    url: 'https://star-beauty.gr/checkout/'
+    url: 'https://domain.gr/checkout/'
     method: GET
     expectStatus: 200
     linkable: false
