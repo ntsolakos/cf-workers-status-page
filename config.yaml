@@ -1,9 +1,9 @@
 settings:
   title: 'Star Beauty Status'
-  url: 'https://cf-workers-status-page-production.starbeauty.workers.dev' # Replace with your actual worker URL after deployment
-  logo: logo-192x192.png # image in ./public/ folder
-  daysInHistogram: 90 # number of days you want to display in histogram
-  collectResponseTimes: true # collects avg response times from CRON locations
+  url: 'https://cf-workers-status-page-production.starbeauty.workers.dev'
+  logo: logo-192x192.png
+  daysInHistogram: 90
+  collectResponseTimes: true
 
   allmonitorsOperational: 'All Systems Operational'
   notAllmonitorsOperational: 'Not All Systems Operational'
@@ -12,13 +12,13 @@ settings:
   monitorLabelNoData: 'No data'
   dayInHistogramNoData: 'No data'
   dayInHistogramOperational: 'All good'
-  dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded 
+  dayInHistogramNotOperational: ' incident(s)'
 
 monitors:
   - id: homepage
     name: 'Public Website'
     description: 'Primary website availability'
-    url: 'https://domain.gr'
+    url: 'https://star-beauty.gr'
     method: GET
     expectStatus: 200
     linkable: true
@@ -26,7 +26,7 @@ monitors:
   - id: catalog
     name: 'Product Catalog'
     description: 'Online catalog availability'
-    url: 'https://domain.gr/shop/'
+    url: 'https://star-beauty.gr/shop/'
     method: GET
     expectStatus: 200
     linkable: true
@@ -34,7 +34,7 @@ monitors:
   - id: checkout
     name: 'Checkout Flow'
     description: 'Order checkout availability'
-    url: 'https://domain.gr/checkout/'
+    url: 'https://star-beauty.gr/checkout/'
     method: GET
     expectStatus: 200
     linkable: true
@@ -42,7 +42,7 @@ monitors:
   - id: cart
     name: 'Shopping Cart'
     description: 'Cart functionality availability'
-    url: 'https://domain.gr/cart/'
+    url: 'https://star-beauty.gr/cart/'
     method: GET
     expectStatus: 200
     linkable: true
@@ -50,7 +50,7 @@ monitors:
   - id: web-api
     name: 'Application API'
     description: 'Core backend API health'
-    url: 'https://domain.gr/wp-json/'
+    url: 'https://star-beauty.gr/wp-json/'
     method: GET
     expectStatus: 200
     linkable: false
@@ -58,7 +58,7 @@ monitors:
   - id: commerce-api
     name: 'Commerce Services API'
     description: 'Order and transaction service availability'
-    url: 'https://domain.gr/wp-json/wc/v3/'
+    url: 'https://star-beauty.gr/wp-json/wc/v3/'
     method: GET
     expectStatus: 200
     linkable: false
@@ -66,7 +66,7 @@ monitors:
   - id: order-processing
     name: 'Order Processing'
     description: 'Order submission backend availability'
-    url: 'https://domain.gr/wp-json/'
+    url: 'https://star-beauty.gr/wp-json/'
     method: GET
     expectStatus: 200
     linkable: false
@@ -74,7 +74,7 @@ monitors:
   - id: payment-init
     name: 'Payment Initialization'
     description: 'Payment session initialization availability'
-    url: 'https://domain.gr/checkout/'
+    url: 'https://star-beauty.gr/checkout/'
     method: GET
     expectStatus: 200
     linkable: false
