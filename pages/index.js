@@ -54,14 +54,10 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
             localStorage.theme = theme
           }
           (() => {
-            const query = window.matchMedia("(prefers-color-scheme: dark)")
-            query.addListener(() => {
-              setTheme(query.matches ? "dark" : "light")
-            })
             if (["dark", "light"].includes(localStorage.theme)) {
               setTheme(localStorage.theme)
             } else {
-              setTheme(query.matches ? "dark" : "light")
+              setTheme("light")
             }
           })()
           `}
