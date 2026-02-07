@@ -1,9 +1,9 @@
 settings:
-  title: 'WooCommerce Status'
-  url: 'https://your-worker-name.workers.dev' # Replace with your actual worker URL after deployment
-  logo: logo-192x192.png # image in ./public/ folder
-  daysInHistogram: 90 # number of days you want to display in histogram
-  collectResponseTimes: true # collects avg response times from CRON locations
+  title: 'Star Beauty Status'
+  url: 'https://cf-workers-status-page-production.starbeauty.workers.dev'
+  logo: logo-192x192.png
+  daysInHistogram: 90
+  collectResponseTimes: true
 
   allmonitorsOperational: 'All Systems Operational'
   notAllmonitorsOperational: 'Not All Systems Operational'
@@ -12,37 +12,69 @@ settings:
   monitorLabelNoData: 'No data'
   dayInHistogramNoData: 'No data'
   dayInHistogramOperational: 'All good'
-  dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
+  dayInHistogramNotOperational: ' incident(s)'
 
 monitors:
   - id: homepage
-    name: 'Your Site Name' # Replace with your actual site name
-    description: 'Main website availability'
-    url: 'https://your-woocommerce-site.com' # Replace with your WooCommerce site URL
+    name: 'Public Website'
+    description: 'Primary website availability'
+    url: 'https://domain.gr'
     method: GET
     expectStatus: 200
     linkable: true
 
-  - id: shop
-    name: 'Shop Page'
-    description: 'WooCommerce storefront'
-    url: 'https://your-woocommerce-site.com/shop' # Replace with your shop page URL
+  - id: catalog
+    name: 'Product Catalog'
+    description: 'Online catalog availability'
+    url: 'https://domain.gr/shop/'
     method: GET
     expectStatus: 200
     linkable: true
 
-  - id: wp-api
-    name: 'WordPress REST API'
-    description: 'Backend API health'
-    url: 'https://your-woocommerce-site.com/wp-json/' # Replace with your WP REST API URL
+  - id: checkout
+    name: 'Checkout Flow'
+    description: 'Order checkout availability'
+    url: 'https://domain.gr/checkout/'
+    method: GET
+    expectStatus: 200
+    linkable: true
+
+  - id: cart
+    name: 'Shopping Cart'
+    description: 'Cart functionality availability'
+    url: 'https://domain.gr/cart/'
+    method: GET
+    expectStatus: 200
+    linkable: true
+
+  - id: web-api
+    name: 'Application API'
+    description: 'Core backend API health'
+    url: 'https://domain.gr/wp-json/'
     method: GET
     expectStatus: 200
     linkable: false
 
-  - id: wc-api
-    name: 'WooCommerce REST API'
-    description: 'WooCommerce backend availability'
-    url: 'https://your-woocommerce-site.com/wp-json/wc/v3/' # Replace with your WC API URL
+  - id: commerce-api
+    name: 'Commerce Services API'
+    description: 'Order and transaction service availability'
+    url: 'https://domain.gr/wp-json/wc/v3/'
     method: GET
-    expectStatus: 200 # Site returns data instead of 401
+    expectStatus: 200
+    linkable: false
+
+  - id: order-processing
+    name: 'Order Processing'
+    description: 'Order submission backend availability'
+    url: 'https://domain.gr/wp-json/'
+    method: GET
+    expectStatus: 200
+    linkable: false
+
+  - id: payment-init
+    name: 'Payment Initialization'
+    description: 'Payment session initialization availability'
+    url: 'https://domain.gr/checkout/'
+    method: GET
+    expectStatus: 200
     linkable: false
