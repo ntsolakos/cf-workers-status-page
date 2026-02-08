@@ -36,7 +36,7 @@ monitors:
     description: 'Order checkout availability'
     url: 'https://domain.gr/checkout/'
     method: GET
-    expectStatus: 200
+    expectStatus: 302
     linkable: true
 
   - id: cart
@@ -76,5 +76,5 @@ monitors:
     description: 'Payment session initialization availability'
     url: 'https://domain.gr/checkout/'
     method: GET
-    expectStatus: 200
+    expectStatus: 302
     linkable: false
