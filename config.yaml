@@ -76,5 +76,5 @@ monitors:
     description: 'Payment session initialization availability'
     url: 'https://star-beauty.gr/checkout/'
     method: GET
-    expectStatus: 200
+    expectStatus: 302
     linkable: false
