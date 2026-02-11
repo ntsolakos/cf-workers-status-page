@@ -42,7 +42,7 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
   const slash = useKeyPress('/')
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Head>
         <title>{config.settings.title}</title>
         <link rel="stylesheet" href="./style.css" />
@@ -60,12 +60,12 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
         </script>
       </Head>
       <div className="container mx-auto px-4" style={{paddingTop: '30px', paddingBottom: '30px'}}>
-        <div className="flex flex-row justify-between items-center p-4">
+        <div className="flex flex-row flex-wrap justify-between items-center p-4 gap-4">
           <div className="flex flex-row items-center">
             <img className="h-8 w-auto" src={config.settings.logo} />
-            <h1 className="ml-4 text-3xl">{config.settings.title}</h1>
+            <h1 className="ml-4 text-2xl sm:text-3xl">{config.settings.title}</h1>
           </div>
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center gap-2">
             {typeof window !== 'undefined' && <ThemeSwitcher />}
             <MonitorFilter active={slash} callback={filterByTerm} />
           </div>
@@ -80,15 +80,15 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
             />
           )
         })}
-        <div className="flex flex-row justify-between mt-4 text-sm">
+        <div className="flex flex-col sm:flex-row justify-between mt-4 text-sm gap-2">
           <div>
             Powered by{' '}
             <a href="https://workers.cloudflare.com/" target="_blank">
               Cloudflare Workers{' '}
             </a>
             &{' '}
-            <a href="https://hashphase.com/" target="_blank">
-              HashPhase{' '}
+            <a href="https://flareact.com/" target="_blank">
+              Flareact{' '}
             </a>
           </div>
           <div>

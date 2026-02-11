@@ -4,6 +4,7 @@ settings:
   logo: logo-192x192.png
   daysInHistogram: 90
   collectResponseTimes: true
+  user_agent: 'StarBeautyStatusMonitor/1.0'
 
   allmonitorsOperational: 'All Systems Operational'
   notAllmonitorsOperational: 'Not All Systems Operational'
@@ -15,66 +16,26 @@ settings:
   dayInHistogramNotOperational: ' incident(s)'
 
 monitors:
-  - id: homepage
-    name: 'Public Website'
-    description: 'Primary website availability'
-    url: 'https://star-beauty.gr'
+  - id: edge
+    name: 'Edge Endpoint'
+    description: 'Primary edge availability'
+    url: 'https://star-beauty.gr/'
     method: GET
     expectStatus: 200
     linkable: true
 
-  - id: catalog
-    name: 'Product Catalog'
-    description: 'Online catalog availability'
+  - id: catalog-node
+    name: 'Catalog Node'
+    description: 'Public catalog availability'
     url: 'https://star-beauty.gr/shop/'
     method: GET
     expectStatus: 200
-    linkable: true
-
-  - id: checkout
-    name: 'Checkout Flow'
-    description: 'Order checkout availability'
-    url: 'https://star-beauty.gr/checkout/'
-    method: GET
-    expectStatus: 200
-    linkable: true
-
-  - id: cart
-    name: 'Shopping Cart'
-    description: 'Cart functionality availability'
-    url: 'https://star-beauty.gr/cart/'
-    method: GET
-    expectStatus: 200
-    linkable: true
-
-  - id: web-api
-    name: 'Application API'
-    description: 'Core backend API health'
-    url: 'https://star-beauty.gr/wp-json/'
-    method: GET
-    expectStatus: 200
     linkable: false
 
-  - id: commerce-api
-    name: 'Commerce Services API'
-    description: 'Order and transaction service availability'
-    url: 'https://star-beauty.gr/wp-json/wc/v3/'
-    method: GET
+  - id: api-node
+    name: 'Application Core'
+    description: 'Core application availability'
+    url: 'https://star-beauty.gr/'
+    method: HEAD
     expectStatus: 200
-    linkable: false
-
-  - id: order-processing
-    name: 'Order Processing'
-    description: 'Order submission backend availability'
-    url: 'https://star-beauty.gr/wp-json/'
-    method: GET
-    expectStatus: 200
-    linkable: false
-
-  - id: payment-init
-    name: 'Payment Initialization'
-    description: 'Payment session initialization availability'
-    url: 'https://star-beauty.gr/checkout/'
-    method: GET
-    expectStatus: 302
     linkable: false
