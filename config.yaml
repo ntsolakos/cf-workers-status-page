@@ -4,6 +4,7 @@ settings:
   logo: logo-192x192.png
   daysInHistogram: 90
   collectResponseTimes: true
+  user_agent: 'StarBeautyStatusMonitor/1.0'
 
   allmonitorsOperational: 'All Systems Operational'
   notAllmonitorsOperational: 'Not All Systems Operational'
