@@ -65,11 +65,9 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
             <img className="h-8 w-auto" src={config.settings.logo} />
             <h1 className="ml-4 text-2xl sm:text-3xl">{config.settings.title}</h1>
           </div>
-          <div className="flex flex-row items-center gap-2">
+          <div className="hidden sm:flex flex-row items-center gap-2">
             {typeof window !== 'undefined' && <ThemeSwitcher />}
-            <div className="hidden sm:block">
-              <MonitorFilter active={slash} callback={filterByTerm} />
-            </div>
+            <MonitorFilter active={slash} callback={filterByTerm} />
           </div>
         </div>
         <MonitorStatusHeader kvMonitorsLastUpdate={kvMonitorsLastUpdate} />
@@ -82,7 +80,7 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
             />
           )
         })}
-        <div className="flex flex-col sm:flex-row justify-between mt-4 text-sm gap-2">
+        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start mt-4 text-sm gap-2 text-center sm:text-left">
           <div>
             Powered by{' '}
             <a href="https://workers.cloudflare.com/" target="_blank">
