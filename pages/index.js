@@ -59,15 +59,17 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
           `}
         </script>
       </Head>
-      <div className="container mx-auto px-4" style={{paddingTop: '30px', paddingBottom: '30px'}}>
-        <div className="flex flex-row flex-wrap justify-between items-center p-4 gap-4">
-          <div className="flex flex-row items-center">
+      <div className="container mx-auto px-4 max-w-full" style={{paddingTop: '30px', paddingBottom: '30px'}}>
+        <div className="flex flex-col sm:flex-row sm:justify-between items-center p-4 gap-4">
+          <div className="flex flex-row items-center justify-center">
             <img className="h-8 w-auto" src={config.settings.logo} />
             <h1 className="ml-4 text-2xl sm:text-3xl">{config.settings.title}</h1>
           </div>
           <div className="flex flex-row items-center gap-2">
             {typeof window !== 'undefined' && <ThemeSwitcher />}
-            <MonitorFilter active={slash} callback={filterByTerm} />
+            <div className="hidden sm:block">
+              <MonitorFilter active={slash} callback={filterByTerm} />
+            </div>
           </div>
         </div>
         <MonitorStatusHeader kvMonitorsLastUpdate={kvMonitorsLastUpdate} />
