@@ -87,8 +87,8 @@ export default function Index({ config, kvMonitors, kvMonitorsLastUpdate }) {
               Cloudflare Workers{' '}
             </a>
             &{' '}
-            <a href="https://flareact.com/" target="_blank">
-              Flareact{' '}
+            <a href="https://HashPhase.com/" target="_blank">
+              HashPhase.com{' '}
             </a>
           </div>
           <div>
